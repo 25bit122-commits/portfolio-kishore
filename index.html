@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Kishore - KGCAS 2nd Year Student, Web Developer based in Thoothukudi, India. Explore featured projects including Restaurant System and GitHub repositories." />
+  <meta name="keywords" content="Kishore, KGCAS, Kishore Portfolio, Restaurant System, Thoothukudi, Web Developer, HTML CSS JS" />
+  <meta name="author" content="Kishore" />
+  <title>Kishore | Portfolio - KGCAS Student & Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2300f0ff'/><text x='50%' y='68%' font-size='60' font-weight='900' fill='%23070b19' font-family='sans-serif' text-anchor='middle'>K</text></svg>" />
+</head>
+<body data-theme="cyan">
+  <!-- Interactive Particle Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow orb-1"></div>
+  <div class="ambient-glow orb-2"></div>
+  <div class="ambient-glow orb-3"></div>
+
+  <!-- Custom Cursor Glow (Desktop) -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar glass-card">
+      <a href="#home" class="nav-brand">
+        <span class="brand-avatar">K</span>
+        <span class="brand-text">Kishore<span class="brand-dot">.dev</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active"><span class="nav-num">01.</span> Home</a></li>
+        <li><a href="#projects" class="nav-link"><span class="nav-num">02.</span> Projects</a></li>
+        <li><a href="#contact" class="nav-link"><span class="nav-num">03.</span> Contact</a></li>
+      </ul>
+
+      <!-- Nav Actions (Color Palette & GitHub) -->
+      <div class="nav-actions">
+        <!-- Accent Theme Switcher -->
+        <div class="theme-palette-wrapper" title="Customize Accent Colors">
+          <button class="palette-btn" id="palette-toggle" aria-label="Toggle Theme Accent Colors">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 3a9 9 0 0 1 9 9 9 9 0 0 1-9 9V3z"/>
+            </svg>
+            <span class="palette-current-color"></span>
+          </button>
+          <div class="palette-dropdown" id="palette-dropdown">
+            <span class="palette-title">Choose Accent Style</span>
+            <div class="palette-options">
+              <button class="color-chip active" data-color="cyan" title="Cyber Cyan">
+                <span class="chip-dot" style="background:#00f0ff;"></span> Cyan
+              </button>
+              <button class="color-chip" data-color="violet" title="Neon Violet">
+                <span class="chip-dot" style="background:#a855f7;"></span> Violet
+              </button>
+              <button class="color-chip" data-color="emerald" title="Matrix Emerald">
+                <span class="chip-dot" style="background:#10b981;"></span> Emerald
+              </button>
+              <button class="color-chip" data-color="amber" title="Sunset Amber">
+                <span class="chip-dot" style="background:#f59e0b;"></span> Amber
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub Integration Nav Icon -->
+        <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="github-nav-btn" title="Visit GitHub Repositories">
+          <svg class="github-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span class="github-nav-text">GitHub</span>
+          <span class="github-badge">Repos</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link active"><span class="nav-num">01.</span> Home</a></li>
+        <li><a href="#projects" class="mobile-nav-link"><span class="nav-num">02.</span> Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link"><span class="nav-num">03.</span> Contact</a></li>
+        <li class="mobile-divider"></li>
+        <li>
+          <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="mobile-github-link">
+            <svg class="github-svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span>GitHub Profile & Repos</span>
+          </a>
+        </li>
+      </ul>
+      <div class="mobile-theme-pills">
+        <span class="mobile-theme-label">Accent Theme:</span>
+        <div class="mobile-chip-row">
+          <button class="color-chip active" data-color="cyan">Cyan</button>
+          <button class="color-chip" data-color="violet">Violet</button>
+          <button class="color-chip" data-color="emerald">Emerald</button>
+          <button class="color-chip" data-color="amber">Amber</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main>
+    <!-- ==================== HERO / HOME SECTION ==================== -->
+    <section id="home" class="section hero-section">
+      <div class="container hero-container">
+        
+        <!-- Left: Text & Bio Content -->
+        <div class="hero-content" data-reveal="fade-up">
+          <div class="status-pill">
+            <span class="status-indicator"></span>
+            <span class="status-text">KGCAS Student • Second Year • Open to Learn & Build</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="greeting-sub">Hello, I'm</span>
+            <span class="hero-name gradient-text">Kishore</span>
+          </h1>
+
+          <div class="typing-container">
+            <span class="typing-prefix">> </span>
+            <span class="typing-text" id="typing-element"></span>
+            <span class="cursor-blink">|</span>
+          </div>
+
+          <p class="hero-description">
+            Undergraduate student at <strong class="text-highlight">KG College of Arts and Science (KGCAS)</strong> currently in my <strong class="text-highlight">Second Year</strong>, based in <strong class="text-highlight">Thoothukudi, India</strong>. Passionate about software architecture, clean frontends, and creating responsive web applications.
+          </p>
+
+          <!-- Key Quick Info Badges -->
+          <div class="info-badges-grid">
+            <div class="info-badge">
+              <div class="badge-icon-box">🎓</div>
+              <div class="badge-content">
+                <span class="badge-label">College</span>
+                <span class="badge-value">KGCAS Student</span>
+              </div>
+            </div>
+            <div class="info-badge">
+              <div class="badge-icon-box">📚</div>
+              <div class="badge-content">
+                <span class="badge-label">Academic Year</span>
+                <span class="badge-value">Second Year</span>
+              </div>
+            </div>
+            <div class="info-badge">
+              <div class="badge-icon-box">📍</div>
+              <div class="badge-content">
+                <span class="badge-label">Location</span>
+                <span class="badge-value">Thoothukudi, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlighted Project Quick Feature Banner -->
+          <a href="#projects" class="hero-highlight-project-card glass-card">
+            <div class="spotlight-tag">
+              <span class="sparkle">⭐</span> HIGHLIGHTED PROJECT
+            </div>
+            <div class="highlight-info">
+              <h3 class="highlight-title">Restaurant System</h3>
+              <p class="highlight-desc">Modern ordering & dining workflow system with responsive UI & clean logic.</p>
+            </div>
+            <div class="highlight-arrow">
+              <span>View</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore Projects</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Contact via Gmail</span>
+            </a>
+            <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+              <svg class="github-svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats Counter Strip -->
+          <div class="stats-counter-strip">
+            <div class="stat-item">
+              <span class="stat-number">2<span class="stat-accent">nd</span></span>
+              <span class="stat-desc">Year Student</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">KGCAS</span>
+              <span class="stat-desc">Institution</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100<span class="stat-accent">%</span></span>
+              <span class="stat-desc">Clean Code & Passion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Profile Card with Interactive 3D Tilt & Floating Badges -->
+        <div class="hero-image-wrapper" data-reveal="fade-left">
+          <div class="profile-tilt-card" id="profile-card">
+            <!-- Glow background effect -->
+            <div class="profile-glow"></div>
+
+            <!-- Profile Frame -->
+            <div class="profile-frame">
+              <img src="assets/profile.jpg" alt="Kishore - KGCAS Second Year Student" class="profile-img" loading="eager" />
+              <div class="profile-overlay-gradient"></div>
+            </div>
+
+            <!-- Floating Interactive Floating Badges -->
+            <div class="floating-badge badge-top-left glass-card">
+              <span class="badge-dot pulse"></span>
+              <span class="badge-text">KGCAS Student</span>
+            </div>
+
+            <div class="floating-badge badge-top-right glass-card">
+              <span class="badge-icon">📍</span>
+              <span class="badge-text">Thoothukudi, IN</span>
+            </div>
+
+            <div class="floating-badge badge-bottom glass-card">
+              <div class="badge-mini-profile">
+                <span class="status-dot"></span>
+                <div>
+                  <div class="name-sub">Kishore</div>
+                  <div class="role-sub">Second Year • Developer</div>
+                </div>
+              </div>
+              <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="mini-github-link" title="Visit Kishore's GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#projects" class="scroll-down-indicator" aria-label="Scroll down to projects">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+        <span class="scroll-text">Explore Work</span>
+      </a>
+    </section>
+
+    <!-- ==================== ABOUT & BACKGROUND SPOTLIGHT ==================== -->
+    <section class="section about-summary-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-card glass-card" data-reveal="fade-up">
+            <div class="about-icon-wrapper">
+              <span class="about-icon">🎓</span>
+            </div>
+            <h3>KGCAS Student</h3>
+            <p>Pursuing academic degree at <strong>KG College of Arts and Science</strong>. Focused on computer science principles, practical software problem solving, and modern development standards.</p>
+            <div class="about-tag">Academic Journey</div>
+          </div>
+
+          <div class="about-card glass-card" data-reveal="fade-up" style="--delay: 0.15s">
+            <div class="about-icon-wrapper">
+              <span class="about-icon">⚡</span>
+            </div>
+            <h3>Second Year</h3>
+            <p>Advancing into core software development, full-stack concepts, database design, and real-world project development like the <strong>Restaurant Management System</strong>.</p>
+            <div class="about-tag">Current Milestone</div>
+          </div>
+
+          <div class="about-card glass-card" data-reveal="fade-up" style="--delay: 0.3s">
+            <div class="about-icon-wrapper">
+              <span class="about-icon">🌊</span>
+            </div>
+            <h3>Thoothukudi, India</h3>
+            <p>Hailing from <strong>Thoothukudi (Pearl City), Tamil Nadu, India</strong>. Driven to build impactful digital solutions that serve businesses and modern users across the globe.</p>
+            <div class="about-tag">Roots & Origin</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header" data-reveal="fade-up">
+          <div class="section-tag">
+            <span class="tag-hash">#</span> PORTFOLIO SHOWCASE
+          </div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Highlighting core software engineering builds, web architectures, and interactive digital systems.
+          </p>
+        </div>
+
+        <!-- HIGHLIGHTED PROJECT: Restaurant System -->
+        <div class="featured-project-container glass-card" id="restaurant-system" data-reveal="fade-up">
+          <div class="project-spotlight-ribbon">
+            <span class="star-icon">⭐</span>
+            <span>OFFICIALLY HIGHLIGHTED PROJECT</span>
+          </div>
+
+          <div class="featured-project-grid">
+            <!-- Left: Project Info -->
+            <div class="featured-info">
+              <div class="project-meta">
+                <span class="project-type-pill">Full System Application</span>
+                <span class="project-status-pill">Active Repository</span>
+              </div>
+
+              <h3 class="featured-project-name">Restaurant System</h3>
+              
+              <p class="featured-project-desc">
+                An end-to-end interactive restaurant ordering, dining, and billing workflow system. Engineered to optimize restaurant operations from customer menu selection to table management and real-time order computing.
+              </p>
+
+              <!-- Feature Bullets -->
+              <div class="feature-checklist">
+                <div class="check-item">
+                  <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Menu & Order Management:</strong> Browse categorized food items, dynamic cart pricing, and instant bill generation.</span>
+                </div>
+                <div class="check-item">
+                  <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Table & Reservation Flow:</strong> Organizes seating occupancy, customer assignments, and service availability.</span>
+                </div>
+                <div class="check-item">
+                  <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Modern Responsive UI:</strong> Clean layout optimized across phones, tablets, and desktop workstations.</span>
+                </div>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="project-tags-list">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Order Processing</span>
+                <span class="tech-tag">Table Management</span>
+                <span class="tech-tag">Open Source</span>
+              </div>
+
+              <!-- Project Action Links -->
+              <div class="featured-actions">
+                <a href="https://github.com/25bit122-commits/Restaurant-System" target="_blank" rel="noopener noreferrer" class="btn btn-primary github-repo-btn">
+                  <svg class="github-svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>Visit on GitHub</span>
+                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+
+                <button class="btn btn-secondary" id="preview-modal-trigger">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                  <span>Interactive Preview</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Visual Mockup Interface -->
+            <div class="featured-mockup-wrapper">
+              <div class="mockup-window glass-card">
+                <div class="mockup-header">
+                  <div class="window-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="window-title">restaurant-system/dashboard.html</div>
+                  <div class="window-badge">v1.2 Live</div>
+                </div>
+
+                <div class="mockup-body">
+                  <!-- Simulated App Interface -->
+                  <div class="sim-app">
+                    <div class="sim-sidebar">
+                      <div class="sim-logo">🍽️ RestoSys</div>
+                      <div class="sim-nav-item active">📋 Menu</div>
+                      <div class="sim-nav-item">🪑 Tables</div>
+                      <div class="sim-nav-item">💳 Orders</div>
+                    </div>
+                    <div class="sim-main">
+                      <div class="sim-header">
+                        <span class="sim-title">Dining Room & Menu</span>
+                        <span class="sim-table-status">Table #04 (Occupied)</span>
+                      </div>
+                      <div class="sim-food-grid">
+                        <div class="food-card selected">
+                          <div class="food-emoji">🍕</div>
+                          <div class="food-name">Artisan Pizza</div>
+                          <div class="food-price">$12.50</div>
+                          <span class="food-status">Added (x2)</span>
+                        </div>
+                        <div class="food-card">
+                          <div class="food-emoji">🍔</div>
+                          <div class="food-name">Classic Burger</div>
+                          <div class="food-price">$9.00</div>
+                          <span class="food-status">Ready</span>
+                        </div>
+                        <div class="food-card">
+                          <div class="food-emoji">🥗</div>
+                          <div class="food-name">Caesar Salad</div>
+                          <div class="food-price">$7.50</div>
+                          <span class="food-status">Ready</span>
+                        </div>
+                      </div>
+                      <div class="sim-bill-summary">
+                        <div class="sim-bill-row">
+                          <span>Items Total (3 items):</span>
+                          <span>$34.00</span>
+                        </div>
+                        <div class="sim-bill-row total">
+                          <span>Grand Total:</span>
+                          <span class="total-price">$34.00</span>
+                        </div>
+                        <div class="sim-bill-btn">Generate Customer Invoice & Pay</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mockup-footer">
+                  <span class="mockup-status">🟢 System Ready: git clone https://github.com/25bit122-commits/Restaurant-System</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Projects & Repositories Grid -->
+        <div class="projects-grid">
+          <!-- Card 2: Modern Portfolio Architecture -->
+          <div class="project-card glass-card" data-reveal="fade-up">
+            <div class="project-card-header">
+              <div class="project-icon-box">⚡</div>
+              <span class="project-tag-mini">Active Build</span>
+            </div>
+            <h4 class="card-project-title">Kishore Portfolio System</h4>
+            <p class="card-project-desc">
+              Engineered with 100% pure HTML5, CSS3, and modern JavaScript. Features multi-theme accent switching, interactive Gmail integration, and 60 FPS visual effects without framework overhead.
+            </p>
+            <div class="card-tech-pills">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Vanilla JS</span>
+              <span>Canvas</span>
+            </div>
+            <div class="card-footer-actions">
+              <a href="#home" class="card-link">
+                <span>View Live</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="card-link-icon" title="View Source on GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: GitHub Repositories Hub -->
+          <div class="project-card glass-card" data-reveal="fade-up" style="--delay: 0.15s">
+            <div class="project-card-header">
+              <div class="project-icon-box">🚀</div>
+              <span class="project-tag-mini">GitHub Hub</span>
+            </div>
+            <h4 class="card-project-title">Open Source & Codebase</h4>
+            <p class="card-project-desc">
+              All coursework repositories, experiments, algorithms, and practical software assignments hosted on GitHub under <strong>25bit122-commits</strong>. Continuously pushing new updates.
+            </p>
+            <div class="card-tech-pills">
+              <span>Git</span>
+              <span>Repositories</span>
+              <span>KGCAS Projects</span>
+              <span>Work in Progress</span>
+            </div>
+            <div class="card-footer-actions">
+              <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span>Browse Repositories</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="card-link-icon" title="View GitHub Repositories">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub Integration Banner -->
+        <div class="github-integration-card glass-card" data-reveal="fade-up">
+          <div class="git-banner-content">
+            <div class="git-logo-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div class="git-banner-text">
+              <h3>Follow My Code & Repositories on GitHub</h3>
+              <p>User profile: <code>github.com/25bit122-commits</code> • Check out latest commits, branches, and upcoming project releases.</p>
+            </div>
+          </div>
+          <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Explore Repositories</span>
+            <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION WITH GMAIL TOGGLE ==================== -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header" data-reveal="fade-up">
+          <div class="section-tag">
+            <span class="tag-hash">#</span> GET IN TOUCH
+          </div>
+          <h2 class="section-title">Contact Kishore</h2>
+          <p class="section-subtitle">
+            Need to reach out about a project, academic discussion, or opportunity? Use the interactive Gmail tools below.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Left Column: Interactive Gmail Toggle Card & Details -->
+          <div class="contact-card glass-card" data-reveal="fade-right">
+            
+            <!-- Gmail Highlight Card Header -->
+            <div class="gmail-highlight-header">
+              <div class="gmail-icon-wrapper">
+                <svg class="gmail-svg" viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="gmail-status-chip">Direct Inbox Connection</span>
+                <h3 class="gmail-box-title">Gmail Integration</h3>
+              </div>
+            </div>
+
+            <!-- Email Address Interactive Display Box -->
+            <div class="email-address-box">
+              <div class="email-field">
+                <span class="email-icon">✉️</span>
+                <span class="email-text" id="target-email">kishoreaspk000@gmail.com</span>
+              </div>
+              <button class="copy-email-btn" id="copy-email-btn" title="Copy email address to clipboard">
+                <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span class="copy-btn-text">Copy</span>
+              </button>
+            </div>
+
+            <!-- Gmail Mode Toggle Switches -->
+            <div class="gmail-toggle-controls">
+              <div class="toggle-description">
+                <span>Select How You Want to Connect:</span>
+              </div>
+              <div class="toggle-mode-pills" role="tablist">
+                <button class="mode-pill active" data-mode="web-gmail" id="tab-web-gmail" role="tab" aria-selected="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                  <span>Open Web Gmail</span>
+                </button>
+                <button class="mode-pill" data-mode="client" id="tab-client" role="tab" aria-selected="false">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span>Default Mail App</span>
+                </button>
+                <button class="mode-pill" data-mode="copy-only" id="tab-copy" role="tab" aria-selected="false">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                  <span>Copy & Manual</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Direct Launch Buttons -->
+            <div class="direct-launch-actions">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kishoreaspk000@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full-width" id="gmail-primary-action">
+                <svg class="gmail-btn-svg" viewBox="0 0 24 24"><path fill="#fff" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span id="gmail-action-text">Launch Gmail Compose Window</span>
+                <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+
+              <a href="mailto:kishoreaspk000@gmail.com" class="btn btn-secondary btn-full-width" id="gmail-secondary-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>Open in Mail Client</span>
+              </a>
+            </div>
+
+            <!-- Quick Info Metadata -->
+            <div class="contact-info-list">
+              <div class="c-info-row">
+                <span class="c-icon">🎓</span>
+                <span class="c-text">KG College of Arts and Science (KGCAS)</span>
+              </div>
+              <div class="c-info-row">
+                <span class="c-icon">📚</span>
+                <span class="c-text">Second Year Undergraduate</span>
+              </div>
+              <div class="c-info-row">
+                <span class="c-icon">📍</span>
+                <span class="c-text">Thoothukudi, Tamil Nadu, India</span>
+              </div>
+              <div class="c-info-row">
+                <span class="c-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </span>
+                <a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="c-link">
+                  github.com/25bit122-commits
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Quick Message Dispatcher -->
+          <div class="contact-card glass-card" data-reveal="fade-left">
+            <div class="form-card-header">
+              <span class="form-tag">Draft & Dispatch</span>
+              <h3>Send a Message Directly to Kishore</h3>
+              <p>Type your message below and hit send — it will seamlessly generate and format an email directly addressed to <code>kishoreaspk000@gmail.com</code>.</p>
+            </div>
+
+            <form id="contact-form" class="interactive-form">
+              <div class="form-group">
+                <label for="user-name">Your Name</label>
+                <div class="input-wrapper">
+                  <input type="text" id="user-name" name="name" placeholder="e.g. Alex Morgan" required />
+                  <span class="input-focus-border"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="user-email">Your Email Address</label>
+                <div class="input-wrapper">
+                  <input type="email" id="user-email" name="email" placeholder="e.g. alex@example.com" required />
+                  <span class="input-focus-border"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="user-subject">Subject</label>
+                <div class="input-wrapper">
+                  <input type="text" id="user-subject" name="subject" placeholder="Project Inquiry / Collaboration / Hello" required />
+                  <span class="input-focus-border"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="user-message">Message</label>
+                <div class="input-wrapper">
+                  <textarea id="user-message" name="message" rows="4" placeholder="Hello Kishore, I wanted to connect regarding..." required></textarea>
+                  <span class="input-focus-border"></span>
+                </div>
+              </div>
+
+              <!-- Dispatch Mode Selector -->
+              <div class="dispatch-mode-selector">
+                <label class="radio-label">
+                  <input type="radio" name="dispatchMethod" value="gmail" checked />
+                  <span class="radio-custom"></span>
+                  <span class="radio-text">Send via Web Gmail</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="dispatchMethod" value="mailto" />
+                  <span class="radio-custom"></span>
+                  <span class="radio-text">Send via Default Mail App</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit" id="form-submit-btn">
+                <span>Dispatch to kishoreaspk000@gmail.com</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="brand-avatar">K</span>
+            <span class="brand-text">Kishore<span class="brand-dot">.dev</span></span>
+          </div>
+          <p class="footer-tagline">
+            KGCAS Second Year Student • Thoothukudi, Tamil Nadu, India.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <span class="footer-heading">Navigation</span>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#restaurant-system">Restaurant System</a></li>
+              <li><a href="#contact">Contact & Gmail</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <span class="footer-heading">Connect</span>
+            <ul>
+              <li><a href="https://github.com/25bit122-commits?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub Repositories</a></li>
+              <li><a href="https://github.com/25bit122-commits/Restaurant-System" target="_blank" rel="noopener noreferrer">Restaurant-System Repo</a></li>
+              <li><a href="mailto:kishoreaspk000@gmail.com">kishoreaspk000@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; <span id="current-year">2026</span> <strong>Kishore</strong>. Built with Pure HTML5, CSS3 & JavaScript.
+        </p>
+        <div class="footer-badges">
+          <span class="tech-pill">No Frameworks</span>
+          <span class="tech-pill">Responsive 60 FPS</span>
+          <span class="tech-pill">Thoothukudi, IN</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTIVE RESTAURANT SYSTEM PREVIEW MODAL ==================== -->
+  <div class="modal-overlay" id="preview-modal" aria-hidden="true">
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-emoji">🍽️</span>
+          <div>
+            <h3>Restaurant Management System</h3>
+            <span class="modal-subtitle">Interactive Feature & Architecture Overview</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Preview Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-desc-box">
+          <p>
+            The <strong>Restaurant System</strong> is built to simplify front-of-house customer billing, itemized ordering, and table allocation for modern food establishments.
+          </p>
+        </div>
+
+        <div class="modal-specs-grid">
+          <div class="spec-card">
+            <span class="spec-icon">🍲</span>
+            <h4>Dynamic Menu Catalog</h4>
+            <p>Classifies items into Starters, Main Course, Beverages, and Desserts with real-time price updates.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-icon">🧾</span>
+            <h4>Live Bill Calculator</h4>
+            <p>Calculates taxes, subtotal, tip adjustments, and prints clean itemized checkout bills.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-icon">🪑</span>
+            <h4>Table Floor Map</h4>
+            <p>Displays available vs occupied dining tables with customer seat tracking.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-icon">💻</span>
+            <h4>Clean Source Code</h4>
+            <p>Structured files with well-documented classes, functions, and responsive CSS styling.</p>
+          </div>
+        </div>
+
+        <div class="modal-github-box">
+          <div class="m-git-left">
+            <svg class="github-svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <div>
+              <strong>Official Repository</strong>
+              <span>github.com/25bit122-commits/Restaurant-System</span>
+            </div>
+          </div>
+          <a href="https://github.com/25bit122-commits/Restaurant-System" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Open Repository</span>
+            <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notification" id="toast-notification">
+    <div class="toast-icon" id="toast-icon">✓</div>
+    <div class="toast-message" id="toast-message">Copied to clipboard!</div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Scroll to top of page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
